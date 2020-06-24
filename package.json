@@ -21,6 +21,10 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djacoshenk/we-plan-check.git"
+  },
   "homepage": "https://weplancheck.com",
   "browserslist": {
     "production": [
