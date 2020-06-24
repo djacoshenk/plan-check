@@ -11,7 +11,6 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
-  "homepage": "https://weplancheck.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -22,6 +21,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "homepage": "https://weplancheck.com",
   "browserslist": {
     "production": [
       ">0.2%",
