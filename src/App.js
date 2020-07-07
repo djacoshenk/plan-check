@@ -2,6 +2,53 @@ import React, {Component} from 'react';
 import './App.css';
 
 class App extends Component {
+  state = {
+    firstName: null,
+    lastName: null,
+    email: null,
+    password: null,
+    formErrors: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: ""
+    }
+  }
+
+  formValid = (formErrors) => {
+    let valid = true;
+  
+    Object.values(formErrors)
+    .forEach(val => val.length > 0 && (valid = false)
+    );
+  
+    return valid;
+  
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (this.formValid(this.state.formErrors)) {
+      console.log(`
+      First Name: ${this.state.firstName}
+      Last Name: ${this.state.lastName}
+      Email: ${this.state.email}
+      Password: ${this.state.password}
+      `)
+    } else {
+      console.error('FORM INVALID - DISPLAY ERROR MESSAGE')  
+    }
+  }
+
+  handleChange = (e) => {
+    e.preventDefault();
+    const {name, value} = e.target;
+    let formErrors = this.state.formErrors;
+
+    
+  }
+
   render() {
     return (
       <div className="wrapper">
