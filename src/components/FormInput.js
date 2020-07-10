@@ -1,8 +1,8 @@
 import React from 'react';
 
-const FormInput = ({ onChange }) => {
+const FormInput = ({ Submit, onChange, formErrors }) => {
   return (
-    <form onSubmit={onChange} noValidate>
+    <form onSubmit={Submit} noValidate>
       <div className="firstName">
         <label htmlFor="firstName">First Name</label>
         <input
@@ -13,6 +13,7 @@ const FormInput = ({ onChange }) => {
           onChange={onChange}
           noValidate
         />
+        <span className="errorMessage">{formErrors}</span>
       </div>
       <div className="lastName">
         <label htmlFor="lastName">Last Name</label>

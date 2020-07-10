@@ -29,17 +29,47 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.handleErrors(e);
+    this.formValid(this.state.formErrors);
+  };
 
-    if (this.formValid(this.state.formErrors)) {
-      console.log(`
-      First Name: ${this.state.firstName}
-      Last Name: ${this.state.lastName}
-      Email: ${this.state.email}
-      Password: ${this.state.password}
-      `);
-    } else {
-      console.error('FORM INVALID - DISPLAY ERROR MESSAGE');
+  handleChange = (e) => {
+    e.preventDefault();
+  };
+
+  handleErrors = (e) => {
+    const { value, input } = e.target;
+    let formErrors = this.state.formErrors;
+
+    switch (value) {
+      case 'firstName':
+        formErrors.firstName =
+          input.length < 1 || input === null
+            ? 'Please provide valid input'
+            : '';
+        break;
+      case 'lastName':
+        formErrors.lastName =
+          input.length < 1 || input === null
+            ? 'Please provide valid input'
+            : '';
+        break;
+      case 'email':
+        formErrors.email =
+          input.length < 1 || input === null
+            ? 'Please provide valid input'
+            : '';
+        break;
+      case 'password':
+        formErrors.password =
+          input.length < 1 || input === null
+            ? 'Please provide valid input'
+            : '';
+        break;
+      default:
+        break;
     }
+    this.setState((state) => state.formErrors[value]);
   };
 
   render() {
@@ -47,7 +77,11 @@ class App extends Component {
       <div className="wrapper">
         <div className="form-wrapper">
           <h1>Create Account</h1>
-          <FormInput onChange={this.handleChange} />
+          <FormInput
+            onChange={this.handleChange}
+            Submit={this.handleSubmit}
+            formErrors={Object.values(this.state.formErrors).map((val) => val)}
+          />
           <CreateAccount Submit={this.handleSubmit} />
         </div>
       </div>
