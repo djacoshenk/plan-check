@@ -37,41 +37,6 @@ class App extends Component {
     e.preventDefault();
   };
 
-  handleErrors = (e) => {
-    const { value, input } = e.target;
-    let formErrors = this.state.formErrors;
-
-    switch (value) {
-      case 'firstName':
-        formErrors.firstName =
-          input.length < 1 || input === null
-            ? 'Please provide valid input'
-            : '';
-        break;
-      case 'lastName':
-        formErrors.lastName =
-          input.length < 1 || input === null
-            ? 'Please provide valid input'
-            : '';
-        break;
-      case 'email':
-        formErrors.email =
-          input.length < 1 || input === null
-            ? 'Please provide valid input'
-            : '';
-        break;
-      case 'password':
-        formErrors.password =
-          input.length < 1 || input === null
-            ? 'Please provide valid input'
-            : '';
-        break;
-      default:
-        break;
-    }
-    this.setState((state) => state.formErrors[value]);
-  };
-
   render() {
     return (
       <div className="wrapper">
