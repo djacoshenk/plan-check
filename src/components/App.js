@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import '../App.css';
-import CreateAccount from './CreateAccount';
 import FormInput from './FormInput';
+
+const emailRegex = RegExp(
+  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+);
 
 class App extends Component {
   state = {
@@ -17,24 +20,52 @@ class App extends Component {
     },
   };
 
-  formValid = (formErrors) => {
+  formValid = ({ formErrors, ...rest }) => {
     let valid = true;
 
-    Object.values(formErrors).forEach((val) =>
-      val.length > 0 ? (valid = false) : (valid = true)
-    );
+    Object.values(formErrors).forEach((val) => {
+      val.length > 0 && (valid = false);
+    });
+
+    Object.values(rest).forEach((val) => {
+      val === null && (valid = false);
+    });
 
     return valid;
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.handleErrors(e);
-    this.formValid(this.state.formErrors);
   };
 
   handleChange = (e) => {
     e.preventDefault();
+    const { name, value } = e.target;
+    let formErrors = { ...this.state.formErrors };
+
+    switch (name) {
+      case 'firstName':
+        formErrors.firstName =
+          value.length < 3 ? 'Minimum 3 characters required' : '';
+        break;
+      case 'lastName':
+        formErrors.lastName =
+          value.length < 3 ? 'Minimum 3 characters required' : '';
+        break;
+      case 'email':
+        formErrors.email = emailRegex.test(value)
+          ? ''
+          : 'Invalid email address';
+        break;
+      case 'password':
+        formErrors.password =
+          value.length < 6 ? 'Minimum 6 characters required' : '';
+        break;
+      default:
+        break;
+    }
+
+    this.setState({ formErrors, [name]: value });
   };
 
   render() {
@@ -45,9 +76,8 @@ class App extends Component {
           <FormInput
             onChange={this.handleChange}
             Submit={this.handleSubmit}
-            formErrors={Object.values(this.state.formErrors).map((val) => val)}
+            formErrors={this.state.formErrors}
           />
-          <CreateAccount Submit={this.handleSubmit} />
         </div>
       </div>
     );
