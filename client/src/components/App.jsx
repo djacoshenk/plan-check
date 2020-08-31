@@ -1,10 +1,11 @@
 import React from 'react';
+import Home from './Home';
 
 function App() {
   return (
-    <div className='bg-blue-800 text-white h-screen text-4xl flex flex-row items-center justify-center'>
-      Coming Soon...
-    </div>
+    <>
+      <Home />
+    </>
   );
 }
 
