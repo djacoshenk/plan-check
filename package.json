@@ -1,5 +1,6 @@
 {
   "name": "we-plan-check",
+  "homepage": "https://weplancheck.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
