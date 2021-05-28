@@ -2,10 +2,7 @@ import { Fragment } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { HomePage } from 'pages/HomePage/HomePage';
-import { UserLoginPage } from 'pages/UserLoginPage/UserLoginPage';
-import { UserSignUpPage } from 'pages/UserSignUpPage/UserSignUpPage';
-
-import './App.css';
+import { UserSignInPage } from 'pages/UserSignInPage/UserSignInPage';
 
 export function App() {
   return (
@@ -15,11 +12,8 @@ export function App() {
           <Route exact path='/'>
             <HomePage />
           </Route>
-          <Route exact path='/login'>
-            <UserLoginPage />
-          </Route>
-          <Route exact path='/signup'>
-            <UserSignUpPage />
+          <Route path='/signin'>
+            <UserSignInPage />
           </Route>
         </Switch>
       </BrowserRouter>
