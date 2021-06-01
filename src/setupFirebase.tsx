@@ -3,7 +3,7 @@ import 'firebase/auth';
 import 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAs4Aq9TxAOcH57ZNH6Cl80eLRZAWzefTM',
+  apiKey: 'AIzaSyDP0wHz7z2ibKaWcTMyKEdsbO94AxksLCI',
   authDomain: 'we-plan-check.firebaseapp.com',
   projectId: 'we-plan-check',
 };
