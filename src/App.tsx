@@ -20,7 +20,7 @@ export function App() {
           <Route path='/signup'>
             <UserSignUpPage />
           </Route>
-          <Route path='/user'>
+          <Route path='/user/:id'>
             <UserDashboardPage />
           </Route>
         </Switch>
