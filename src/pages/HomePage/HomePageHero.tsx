@@ -95,7 +95,7 @@ export function HomePageHero() {
             <div className='mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8'>
               <div className='rounded-md shadow'>
                 <Link
-                  to='#'
+                  to='/signup'
                   className='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 md:py-4 md:text-lg md:px-10'
                 >
                   Get started
