@@ -203,7 +203,7 @@ export function UserSignUpPageSignUpForm() {
           <form className='space-y-6' onSubmit={handleFormSubmit}>
             <div>
               <label
-                htmlFor='first-name'
+                htmlFor='first_name'
                 className='block text-sm font-medium text-gray-700'
               >
                 First name
@@ -237,7 +237,7 @@ export function UserSignUpPageSignUpForm() {
 
             <div>
               <label
-                htmlFor='last-name'
+                htmlFor='last_name'
                 className='block text-sm font-medium text-gray-700'
               >
                 Last name
@@ -334,7 +334,7 @@ export function UserSignUpPageSignUpForm() {
 
             <div>
               <label
-                htmlFor='confirm-password'
+                htmlFor='confirm_password'
                 className='block text-sm font-medium text-gray-700'
               >
                 Confirm password
