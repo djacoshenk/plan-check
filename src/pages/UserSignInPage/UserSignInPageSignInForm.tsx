@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { HiExclamationCircle } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import validator from 'validator';
 
 import { firestore, auth } from 'setupFirebase';
@@ -28,6 +28,7 @@ export function UserSignInPageSignInForm() {
   const [signInFormErrorValues, setSignInFormErrorValues] = useState<
     SignInFormType
   >(defaultSignInFormErrorValues);
+  const history = useHistory();
 
   function checkEmptyFormValues(
     formValues: SignInFormType,
@@ -84,6 +85,8 @@ export function UserSignInPageSignInForm() {
               }
             }
           });
+
+          history.push(`/user/${user.uid}`);
         }
       } catch (error) {
         if (error.code === 'auth/invalid-email') {

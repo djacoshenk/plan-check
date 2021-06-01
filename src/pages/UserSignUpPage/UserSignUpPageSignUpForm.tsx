@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { HiExclamationCircle } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import validator from 'validator';
 
 import { firestore, auth } from 'setupFirebase';
@@ -37,6 +37,7 @@ export function UserSignUpPageSignUpForm() {
   const [signUpFormErrorValues, setSignUpFormErrorValues] = useState<
     SignUpFormType
   >(defaultSignUpFormErrorValues);
+  const history = useHistory();
 
   function checkEmptyFormValues(errors: SignUpFormType) {
     for (const name in signUpFormValues) {
@@ -131,6 +132,8 @@ export function UserSignUpPageSignUpForm() {
               }
             }
           });
+
+          history.push(`/user/${user.uid}`);
         }
       } catch (error) {
         if (error.code === 'auth/email-already-in-use') {
