@@ -1,0 +1,161 @@
+.home-page-nav-bar-container {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2rem;
+  background-color: rgba(255, 255, 255);
+}
+
+.home-page-nav-bar-logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page-nav-bar-title {
+  color: rgba(0, 0, 0);
+  margin-left: 0.5rem;
+}
+
+.home-page-nav-bar-links-btns-container {
+  display: none;
+}
+
+.home-page-nav-bar-links-btns-container.mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  height: auto;
+  width: 100%;
+  background-color: rgba(255, 255, 255);
+  z-index: 100;
+  border-top: 1px solid rgba(229, 231, 235);
+  border-bottom: 1px solid rgba(229, 231, 235);
+  padding: 1rem;
+}
+
+.home-page-nav-bar-links-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page-nav-bar-link {
+  padding: 1rem 0rem;
+  text-decoration: none;
+  color: rgba(75, 85, 99);
+}
+
+.home-page-nav-bar-btns-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0rem;
+}
+
+.home-page-nav-bar-sign-in-btn {
+  display: none;
+}
+
+.home-page-nav-bar-sign-in-btn,
+.home-page-nav-bar-sign-up-btn {
+  width: 100px;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.home-page-nav-bar-sign-up-btn {
+  background-color: rgba(37, 99, 235);
+  color: rgba(255, 255, 255);
+  margin-bottom: 1rem;
+}
+
+.home-page-nav-bar-sign-up-btn:active {
+  background-color: rgba(59, 130, 246);
+}
+
+.home-page-nav-bar-sign-in-link {
+  color: rgba(37, 99, 235);
+  text-decoration: none;
+}
+
+.home-page-nav-bar-sign-in-link:active {
+  color: rgba(59, 130, 246);
+}
+
+@media (min-width: 769px) {
+  .home-page-nav-bar-title {
+    font-size: 1.8rem;
+  }
+
+  .hamburger-react {
+    display: none;
+  }
+
+  .home-page-nav-bar-links-btns-container {
+    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-page-nav-bar-links-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-page-nav-bar-link {
+    margin: 0rem 1rem;
+  }
+
+  .home-page-nav-bar-btns-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .home-page-nav-bar-sign-in-btn {
+    display: block;
+    margin-left: 1rem;
+  }
+
+  .home-page-nav-bar-sign-up-btn {
+    margin: 0;
+    margin-left: 1rem;
+  }
+
+  .home-page-nav-bar-sign-in-btn {
+    background-color: rgba(229, 231, 235);
+    color: rgba(75, 85, 99);
+  }
+
+  .home-page-nav-bar-sign-in-btn:hover {
+    background-color: rgba(209, 213, 219);
+  }
+
+  .home-page-nav-bar-sign-in-mobile {
+    display: none;
+  }
+
+  .home-page-nav-bar-link {
+    padding: 0;
+  }
+}

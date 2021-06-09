@@ -1,15 +1,13 @@
-import { Fragment } from 'react';
+import { HomePageHeroSection } from 'pages/HomePage/HomePageHeroSection';
+import { HomePageNavBar } from 'pages/HomePage/HomePageNavBar';
 
-import { HomePageFeatures } from 'pages/HomePage/HomePageFeatures';
-import { HomePageFooter } from 'pages/HomePage/HomePageFooter';
-import { HomePageHero } from 'pages/HomePage/HomePageHero';
+import 'pages/HomePage/HomePage.css';
 
 export function HomePage() {
   return (
-    <Fragment>
-      <HomePageHero />
-      <HomePageFeatures />
-      <HomePageFooter />
-    </Fragment>
+    <main className='home-page-main-container'>
+      <HomePageNavBar />
+      <HomePageHeroSection />
+    </main>
   );
 }
