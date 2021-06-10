@@ -13,7 +13,7 @@ export function HomePageHeroSection() {
           Plan check services for developers and engineers.
         </h2>
         <button type='button' className='home-page-hero-section-btn'>
-          Learn More
+          Get Started
         </button>
       </div>
     </section>

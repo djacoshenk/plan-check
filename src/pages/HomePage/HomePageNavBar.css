@@ -53,6 +53,11 @@
   padding: 1rem 0rem;
   text-decoration: none;
   color: rgba(75, 85, 99);
+  transition: all 0.2s ease-in-out;
+}
+
+.home-page-nav-bar-link:active {
+  color: rgba(0, 0, 0);
 }
 
 .home-page-nav-bar-btns-container {
@@ -96,11 +101,13 @@
   color: rgba(59, 130, 246);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 481px) {
   .home-page-nav-bar-title {
     font-size: 1.8rem;
   }
+}
 
+@media (min-width: 769px) {
   .hamburger-react {
     display: none;
   }
@@ -124,6 +131,11 @@
     margin: 0rem 1rem;
   }
 
+  .home-page-nav-bar-link:active,
+  .home-page-nav-bar-link:hover {
+    color: rgba(0, 0, 0);
+  }
+
   .home-page-nav-bar-btns-container {
     display: flex;
     flex-direction: row;
@@ -135,6 +147,13 @@
   .home-page-nav-bar-sign-in-btn {
     display: block;
     margin-left: 1rem;
+    background-color: rgba(229, 231, 235);
+    color: rgba(75, 85, 99);
+  }
+
+  .home-page-nav-bar-sign-in-btn:active,
+  .home-page-nav-bar-sign-in-btn:hover {
+    background-color: rgba(209, 213, 219);
   }
 
   .home-page-nav-bar-sign-up-btn {
@@ -142,13 +161,9 @@
     margin-left: 1rem;
   }
 
-  .home-page-nav-bar-sign-in-btn {
-    background-color: rgba(229, 231, 235);
-    color: rgba(75, 85, 99);
-  }
-
-  .home-page-nav-bar-sign-in-btn:hover {
-    background-color: rgba(209, 213, 219);
+  .home-page-nav-bar-sign-up-btn:active,
+  .home-page-nav-bar-sign-up-btn:hover {
+    background-color: rgba(59, 130, 246);
   }
 
   .home-page-nav-bar-sign-in-mobile {
