@@ -1,0 +1,105 @@
+.home-page-features-section-1-container {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0rem;
+}
+
+.home-page-features-section-1-image-container {
+  width: calc(100% - 2rem);
+  overflow-x: hidden;
+  padding: 0rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page-features-section-1-image {
+  height: 400px;
+  width: auto;
+}
+
+.home-page-features-section-1-heading-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page-features-section-1-heading {
+  font-weight: 600;
+  font-size: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.home-page-features-section-1-detail {
+  font-weight: 300;
+  margin: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.home-page-features-section-1-btn {
+  width: auto;
+  padding: 1rem 2rem;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: rgba(37, 99, 235);
+  color: rgba(255, 255, 255);
+}
+
+.home-page-features-section-1-btn:active {
+  background-color: rgba(59, 130, 246);
+}
+
+@media (min-width: 481px) {
+  .home-page-features-section-1-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .home-page-features-section-1-image-container {
+    width: 60%;
+    margin-right: 2rem;
+    padding: 0;
+  }
+
+  .home-page-features-section-1-heading-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 40%;
+    margin: 0rem 3rem;
+  }
+
+  .home-page-features-section-1-heading {
+    text-align: start;
+  }
+
+  .home-page-features-section-1-detail {
+    margin: 1rem 0rem;
+    text-align: start;
+  }
+}
+
+@media (min-width: 769px) {
+  .home-page-features-section-1-image {
+    height: 600px;
+    width: auto;
+  }
+
+  .home-page-features-section-1-btn:hover {
+    background-color: rgba(59, 130, 246);
+  }
+}
