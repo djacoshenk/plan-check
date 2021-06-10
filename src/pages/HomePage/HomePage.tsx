@@ -1,3 +1,4 @@
+import { HomePageFeaturesSection } from 'pages/HomePage/HomePageFeaturesSection';
 import { HomePageHeroSection } from 'pages/HomePage/HomePageHeroSection';
 import { HomePageNavBar } from 'pages/HomePage/HomePageNavBar';
 
@@ -8,6 +9,7 @@ export function HomePage() {
     <main className='home-page-main-container'>
       <HomePageNavBar />
       <HomePageHeroSection />
+      <HomePageFeaturesSection />
     </main>
   );
 }
