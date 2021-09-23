@@ -1,8 +1,8 @@
-import { Fragment } from 'react';
+import { Fragment } from "react";
 
-import { HomePageFeatures } from 'pages/HomePage/HomePageFeatures';
-import { HomePageFooter } from 'pages/HomePage/HomePageFooter';
-import { HomePageHero } from 'pages/HomePage/HomePageHero';
+import { HomePageFeatures } from "pages/HomePage/HomePageFeatures";
+import { HomePageFooter } from "pages/HomePage/HomePageFooter";
+import { HomePageHero } from "pages/HomePage/HomePageHero";
 
 export function HomePage() {
   return (
