@@ -97,7 +97,7 @@
     "eslint-plugin-testing-library": "3.10.1",
     "jest-axe": "4.1.0",
     "jest-when": "3.3.1",
-    "postcss": "7.0.0",
+    "postcss": "7.0.36",
     "prettier": "2.1.0",
     "react-icons": "4.2.0",
     "start-server-and-test": "1.12.0",
