@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "6.1.2",
+    "@firebase/util": "1.3.0",
     "@sentry/react": "5.29.2",
     "@sentry/tracing": "5.29.2",
     "@testing-library/cypress": "7.0.3",
@@ -37,18 +38,13 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "cy:start": "craco -r @cypress/instrument-cra start",
-    "test:e2e:run": "start-server-and-test cy:start http://localhost:3000 cy:run",
-    "test:e2e:dev": "start-server-and-test cy:start http://localhost:3000 cy:open",
+    "cy:ci": "start-server-and-test cy:start http://localhost:3000 cy:run",
+    "cy:local": "start-server-and-test cy:start http://localhost:3000 cy:open",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.tsx\"",
     "lint": "eslint \"src/**/*.tsx\"",
-    "tsc": "tsc --noEmit",
+    "tsc": "tsc --noEmit --watch",
     "tsc:watch": "tsc --noEmit --watch"
-  },
-  "jest": {
-    "testMatch": [
-      "**/__tests__/**/*.test.tsx"
-    ]
   },
   "browserslist": {
     "production": [
@@ -81,7 +77,7 @@
     "@types/testing-library__jest-dom": "5.9.5",
     "@types/uuid": "8.3.0",
     "@types/validator": "13.1.2",
-    "@typescript-eslint/eslint-plugin": "4.4.0",
+    "@typescript-eslint/eslint-plugin": "4.31.2",
     "@typescript-eslint/parser": "4.4.0",
     "autoprefixer": "9.0.0",
     "babel-eslint": "10.1.0",
@@ -108,6 +104,6 @@
     "start-server-and-test": "1.12.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.1.2",
     "ts-jest": "26.5.0",
-    "typescript": "4.1.3"
+    "typescript": "4.4.3"
   }
 }
