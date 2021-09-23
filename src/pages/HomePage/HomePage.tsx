@@ -1,12 +1,12 @@
-import { HomePageFeaturesSection } from 'pages/HomePage/HomePageFeaturesSection';
-import { HomePageHeroSection } from 'pages/HomePage/HomePageHeroSection';
-import { HomePageNavBar } from 'pages/HomePage/HomePageNavBar';
+import { Fragment } from "react";
 
-import 'pages/HomePage/HomePage.css';
+import { HomePageFeatures } from "pages/HomePage/HomePageFeatures";
+import { HomePageFooter } from "pages/HomePage/HomePageFooter";
+import { HomePageHero } from "pages/HomePage/HomePageHero";
 
 export function HomePage() {
   return (
-    <main className='home-page-main-container'>
+    <main className="home-page-main-container">
       <HomePageNavBar />
       <HomePageHeroSection />
       <HomePageFeaturesSection />
