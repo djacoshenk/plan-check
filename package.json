@@ -31,9 +31,9 @@
     "validator": "13.6.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "test:coverage": "npm run test -- --coverage",
     "test:watch": "npm run test --watch",
     "cy:run": "cypress run",
