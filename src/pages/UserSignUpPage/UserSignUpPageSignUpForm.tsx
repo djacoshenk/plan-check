@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FirebaseError } from "@firebase/util";
 import { HiExclamationCircle } from "react-icons/hi";
 import { Link, useHistory } from "react-router-dom";
 import validator from "validator";
@@ -115,11 +114,9 @@ export function UserSignUpPageSignUpForm() {
 
           history.push(`/user/${user.uid}`);
         }
-      } catch (error) {
-        if (error instanceof FirebaseError) {
-          if (error.code === "auth/email-already-in-use") {
-            errors.email = "A user already exists with this email";
-          }
+      } catch (error: any) {
+        if (error.code === "auth/email-already-in-use") {
+          errors.email = "A user already exists with this email";
         }
       }
     }
