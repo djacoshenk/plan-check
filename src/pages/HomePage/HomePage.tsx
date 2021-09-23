@@ -6,10 +6,10 @@ import { HomePageHero } from "pages/HomePage/HomePageHero";
 
 export function HomePage() {
   return (
-    <main className="home-page-main-container">
-      <HomePageNavBar />
-      <HomePageHeroSection />
-      <HomePageFeaturesSection />
-    </main>
+    <Fragment>
+      <HomePageHero />
+      <HomePageFeatures />
+      <HomePageFooter />
+    </Fragment>
   );
 }
