@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FirebaseError } from "@firebase/util";
 import { HiExclamationCircle } from "react-icons/hi";
 import { Link, useHistory } from "react-router-dom";
 import validator from "validator";
@@ -74,15 +73,13 @@ export function UserSignInPageSignInForm() {
 
           history.push(`/user/${user.uid}`);
         }
-      } catch (error) {
-        if (error instanceof FirebaseError) {
-          if (error.code === "auth/invalid-email") {
-            errors.email = "Please provide a valid email";
-          } else if (error.code === "auth/wrong-password") {
-            errors.password = "Incorrect password";
-          } else if (error.code === "auth/user-not-found") {
-            errors.email = "An account does not exist with the provided email";
-          }
+      } catch (error: any) {
+        if (error.code === "auth/invalid-email") {
+          errors.email = "Please provide a valid email";
+        } else if (error.code === "auth/wrong-password") {
+          errors.password = "Incorrect password";
+        } else if (error.code === "auth/user-not-found") {
+          errors.email = "An account does not exist with the provided email";
         }
       }
     }
