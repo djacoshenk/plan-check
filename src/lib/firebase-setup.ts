@@ -1,11 +1,11 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDP0wHz7z2ibKaWcTMyKEdsbO94AxksLCI',
-  authDomain: 'we-plan-check.firebaseapp.com',
-  projectId: 'we-plan-check',
+  apiKey: process.env.REACT_APP_FIREBASE,
+  authDomain: "we-plan-check.firebaseapp.com",
+  projectId: "we-plan-check",
 };
 
 firebase.initializeApp(firebaseConfig);
