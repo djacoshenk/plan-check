@@ -21,7 +21,7 @@ const defaultSignInFormErrorValues = {
   password: "",
 };
 
-export function UserSignInPageSignInForm() {
+export function UserSignInForm() {
   const [signInFormValues, setSignInFormValues] = useState<SignInFormType>(defaultSignInFormValues);
   const [signInFormErrorValues, setSignInFormErrorValues] = useState<SignInFormType>({
     email: "",
