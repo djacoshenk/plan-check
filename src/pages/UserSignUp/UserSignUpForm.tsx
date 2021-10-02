@@ -30,7 +30,7 @@ const defaultSignUpFormErrorValues = {
   confirm_password: "",
 };
 
-export function UserSignUpPageSignUpForm() {
+export function UserSignUpForm() {
   const [signUpFormValues, setSignUpFormValues] = useState<SignUpFormType>(defaultSignUpFormValues);
   const [signUpFormErrorValues, setSignUpFormErrorValues] = useState<SignUpFormType>(defaultSignUpFormErrorValues);
   const history = useHistory();

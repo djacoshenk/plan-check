@@ -7,7 +7,7 @@ import { BrowserRouter, Router } from "react-router-dom";
 
 import { fakeUserSignUpData } from "__tests__/fixtures/fakeUserSignUpData";
 import { auth, firestore } from "lib/firebase-setup";
-import { UserSignUpPage } from "pages/UserSignUpPage/UserSignUpPage";
+import { UserSignUp } from "pages/UserSignUp/UserSignUp";
 
 jest.mock("lib/firebase-setup");
 
@@ -22,7 +22,7 @@ describe("a11y violations", () => {
   test("if page has any a11y violations", async () => {
     const { container } = render(
       <BrowserRouter>
-        <UserSignUpPage />
+        <UserSignUp />
       </BrowserRouter>
     );
 
@@ -36,7 +36,7 @@ describe("error states", () => {
   test("if user submits form with empty fields", () => {
     render(
       <BrowserRouter>
-        <UserSignUpPage />
+        <UserSignUp />
       </BrowserRouter>
     );
 
@@ -48,7 +48,7 @@ describe("error states", () => {
   test("if user submits form with some empty fields", () => {
     render(
       <BrowserRouter>
-        <UserSignUpPage />
+        <UserSignUp />
       </BrowserRouter>
     );
 
@@ -80,7 +80,7 @@ describe("error states", () => {
   test("if user submits form with invalid email address", () => {
     render(
       <BrowserRouter>
-        <UserSignUpPage />
+        <UserSignUp />
       </BrowserRouter>
     );
 
@@ -94,7 +94,7 @@ describe("error states", () => {
   test("if user submits form with password less than 6 characters in length", () => {
     render(
       <BrowserRouter>
-        <UserSignUpPage />
+        <UserSignUp />
       </BrowserRouter>
     );
 
@@ -108,7 +108,7 @@ describe("error states", () => {
   test("if user submits form with non-matching passwords", () => {
     render(
       <BrowserRouter>
-        <UserSignUpPage />
+        <UserSignUp />
       </BrowserRouter>
     );
 
@@ -129,7 +129,7 @@ describe("error states", () => {
 
     render(
       <BrowserRouter>
-        <UserSignUpPage />
+        <UserSignUp />
       </BrowserRouter>
     );
 
@@ -175,7 +175,7 @@ describe("golden path", () => {
 
     render(
       <Router history={history}>
-        <UserSignUpPage />
+        <UserSignUp />
       </Router>
     );
 
