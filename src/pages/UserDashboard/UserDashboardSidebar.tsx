@@ -33,7 +33,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export function UserDashboardPageSidebar() {
+export function UserDashboardSidebar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
