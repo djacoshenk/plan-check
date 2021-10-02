@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import { HomePageHeader } from "pages/HomePage/HomePageHeader";
+import { HomeHeader } from "pages/Home/HomeHeader";
 
-export function HomePageHero() {
+export function HomeHero() {
   return (
     <div className="relative bg-gray-800 overflow-hidden">
       <div className="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full" aria-hidden="true">
@@ -52,7 +52,7 @@ export function HomePageHero() {
         </div>
       </div>
       <div className="relative pt-6 pb-16 sm:pb-24">
-        <HomePageHeader />
+        <HomeHeader />
 
         <main className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24">
           <div className="text-center">
@@ -61,8 +61,8 @@ export function HomePageHero() {
               <span className="md:block">for developers and engineers</span>
             </h1>
             <p className="mt-3 max-w-md mx-auto text-base text-gray-300 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-              fugiat veniam occaecat fugiat aliqua.
+              Virtualize the over-the-counter plan check experience of delivering construction documents, meeting with
+              reviewers, and receiving comments.
             </p>
             <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
               <div className="rounded-md shadow">
@@ -71,6 +71,14 @@ export function HomePageHero() {
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 md:py-4 md:text-lg md:px-10"
                 >
                   Get started
+                </Link>
+              </div>
+              <div className="mt-3 sm:mt-0 sm:ml-3">
+                <Link
+                  to="#"
+                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+                >
+                  Learn more
                 </Link>
               </div>
             </div>

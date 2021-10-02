@@ -8,7 +8,7 @@ const navigation = [
   { name: "Company", path: "#" },
 ];
 
-export function HomePageHeader() {
+export function HomeHeader() {
   return (
     <Popover>
       {({ open }) => (

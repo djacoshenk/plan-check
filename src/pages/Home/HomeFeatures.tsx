@@ -3,29 +3,27 @@ import { HiOutlineGlobeAlt, HiOutlineLightningBolt, HiOutlineMail, HiOutlineScal
 const features = [
   {
     name: "Revision Notifications",
-    description: "Notify of and receive plan check comments to be addressed before obtaining approval.",
+    description: "Notify of and receive plan check comments to be addressed before obtaining construction approval.",
     icon: HiOutlineGlobeAlt,
   },
   {
     name: "Direct Messaging",
-    description: "Instantly message and provide or obtain status updates on project approval.",
+    description: "Instantly deliver and receive faster status updates on project approval timeline.",
     icon: HiOutlineScale,
   },
   {
     name: "Virtual Meetings",
-    description:
-      "Omnis, illo delectus? Libero, possimus nulla nemo tenetur adipisci repellat dolore eligendi velit doloribus mollitia.",
+    description: "Stop wasting time with in-person meetings and communicate in a virtual meeting.",
     icon: HiOutlineLightningBolt,
   },
   {
     name: "File Sharing",
-    description:
-      "Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.",
+    description: "Upload plan check documents to a shared file system and initiate the review process sooner.",
     icon: HiOutlineMail,
   },
 ];
 
-export function HomePageFeatures() {
+export function HomeFeatures() {
   return (
     <div className="bg-gray-50 overflow-hidden">
       <div className="relative max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">

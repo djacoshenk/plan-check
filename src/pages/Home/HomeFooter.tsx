@@ -5,7 +5,7 @@ const navigation = {
   ],
 };
 
-export function HomePageFooter() {
+export function HomeFooter() {
   return (
     <footer className="bg-gray-800">
       <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
