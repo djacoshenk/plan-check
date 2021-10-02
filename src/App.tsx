@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { HomePage } from "pages/HomePage/HomePage";
-import { UserDashboardPage } from "pages/UserDashboardPage/UserDashboardPage";
-import { UserSignInPage } from "pages/UserSignInPage/UserSignInPage";
-import { UserSignUpPage } from "pages/UserSignUpPage/UserSignUpPage";
+import { Home } from "pages/Home/Home";
+import { UserDashboard } from "pages/UserDashboard/UserDashboard";
+import { UserSignIn } from "pages/UserSignIn/UserSignIn";
+import { UserSignUp } from "pages/UserSignUp/UserSignUp";
 
 export function App() {
   return (
@@ -12,16 +12,16 @@ export function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <HomePage />
+            <Home />
           </Route>
           <Route path="/signin">
-            <UserSignInPage />
+            <UserSignIn />
           </Route>
           <Route path="/signup">
-            <UserSignUpPage />
+            <UserSignUp />
           </Route>
           <Route path="/user/:id">
-            <UserDashboardPage />
+            <UserDashboard />
           </Route>
         </Switch>
       </BrowserRouter>
