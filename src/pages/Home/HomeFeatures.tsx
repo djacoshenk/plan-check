@@ -3,7 +3,7 @@ import { HiOutlineGlobeAlt, HiOutlineLightningBolt, HiOutlineMail, HiOutlineScal
 const features = [
   {
     name: "Revision Notifications",
-    description: "Notify of and receive plan check comments to be addressed before obtaining construction approval.",
+    description: "Notify of and receive plan check comments to be addressed before obtaining approval.",
     icon: HiOutlineGlobeAlt,
   },
   {
@@ -13,7 +13,7 @@ const features = [
   },
   {
     name: "Virtual Meetings",
-    description: "Stop wasting time with in-person meetings and communicate in a virtual meeting.",
+    description: "Stop wasting time with in-person meetings and communicate in a virtual setting.",
     icon: HiOutlineLightningBolt,
   },
   {
