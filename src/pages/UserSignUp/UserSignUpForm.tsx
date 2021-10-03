@@ -3,6 +3,7 @@ import { HiExclamationCircle } from "react-icons/hi";
 import { Link, useHistory } from "react-router-dom";
 import validator from "validator";
 
+import { Spinner } from "components/Spinner";
 import { firestore, auth } from "lib/firebase-setup";
 
 type SignUpFormType = {
@@ -31,6 +32,7 @@ const defaultSignUpFormErrorValues = {
 };
 
 export function UserSignUpForm() {
+  const [isSigningUp, setIsSigningUp] = useState(false);
   const [signUpFormValues, setSignUpFormValues] = useState<SignUpFormType>(defaultSignUpFormValues);
   const [signUpFormErrorValues, setSignUpFormErrorValues] = useState<SignUpFormType>(defaultSignUpFormErrorValues);
   const history = useHistory();
@@ -129,6 +131,8 @@ export function UserSignUpForm() {
 
   function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    setIsSigningUp(true);
 
     const signUpFormErrors = {
       ...defaultSignUpFormErrorValues,
@@ -315,7 +319,7 @@ export function UserSignUpForm() {
                 type="submit"
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Sign up
+                {isSigningUp ? <Spinner /> : "Sign up"}
               </button>
             </div>
           </form>
