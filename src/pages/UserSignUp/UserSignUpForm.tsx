@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { HiExclamationCircle } from "react-icons/hi";
 import { Link, useHistory } from "react-router-dom";
-import validator from "validator";
 
 import { Spinner } from "components/Spinner";
+import { checkEmptyFormValues } from "helpers/checkEmptyFormValues";
+import { checkPasswordsMatch } from "helpers/checkPasswordsMatch";
+import { checkStrongPassword } from "helpers/checkStrongPassword";
+import { checkValidEmail } from "helpers/checkValidEmail";
+import { formHasErrors } from "helpers/formHasErrors";
 import { firestore, auth } from "lib/firebase-setup";
 
 type SignUpFormType = {
@@ -36,53 +40,6 @@ export function UserSignUpForm() {
   const [signUpFormValues, setSignUpFormValues] = useState<SignUpFormType>(defaultSignUpFormValues);
   const [signUpFormErrorValues, setSignUpFormErrorValues] = useState<SignUpFormType>(defaultSignUpFormErrorValues);
   const history = useHistory();
-
-  function checkEmptyFormValues(errors: SignUpFormType) {
-    for (const name in signUpFormValues) {
-      if (!signUpFormValues[name]) {
-        errors[name] = "Please fill out field";
-      }
-    }
-  }
-
-  function checkValidEmail(formValues: SignUpFormType, errors: SignUpFormType) {
-    if (formValues.email) {
-      if (!validator.isEmail(formValues.email)) {
-        errors.email = "Please provide a valid email";
-      }
-    }
-  }
-
-  function checkPasswordsMatch(formValues: SignUpFormType, errors: SignUpFormType) {
-    if (formValues.password && formValues.confirm_password) {
-      if (formValues.password !== formValues.confirm_password) {
-        errors.password = "Passwords don't match";
-        errors.confirm_password = "Passwords don't match";
-      }
-    }
-  }
-
-  function checkStrongPassword(formValues: SignUpFormType, errors: SignUpFormType) {
-    if (formValues.password) {
-      if (
-        !validator.isStrongPassword(formValues.password, {
-          minLength: 6,
-          minLowercase: 0,
-          minUppercase: 0,
-          minNumbers: 0,
-          minSymbols: 0,
-        })
-      ) {
-        errors.password = "Password must be a minimum of 6 characters";
-      }
-    }
-  }
-
-  function formHasErrors(errors: SignUpFormType) {
-    const formErrorValues = Object.values(errors).filter((val) => val.length > 0);
-
-    return formErrorValues.length > 0;
-  }
 
   async function trySigningUp(formValues: SignUpFormType, errors: SignUpFormType) {
     if (!formHasErrors(errors)) {
@@ -138,7 +95,7 @@ export function UserSignUpForm() {
       ...defaultSignUpFormErrorValues,
     };
 
-    checkEmptyFormValues(signUpFormErrors);
+    checkEmptyFormValues(signUpFormValues, signUpFormErrors);
 
     checkValidEmail(signUpFormValues, signUpFormErrors);
 
