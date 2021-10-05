@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { HiExclamationCircle } from "react-icons/hi";
 import { Link, useHistory } from "react-router-dom";
-import validator from "validator";
 
 import { Spinner } from "components/Spinner";
+import { checkEmptyFormValues } from "helpers/checkEmptyFormValues";
+import { checkValidEmail } from "helpers/checkValidEmail";
+import { formHasErrors } from "helpers/formHasErrors";
 import { firestore, auth } from "lib/firebase-setup";
 
 type SignInFormType = {
@@ -30,28 +32,6 @@ export function UserSignInForm() {
     password: "",
   });
   const history = useHistory();
-
-  function checkEmptyFormValues(formValues: SignInFormType, errors: SignInFormType) {
-    for (const name in formValues) {
-      if (!formValues[name]) {
-        errors[name] = "Please fill out field";
-      }
-    }
-  }
-
-  function checkValidEmail(formValues: SignInFormType, errors: SignInFormType) {
-    if (formValues.email) {
-      if (!validator.isEmail(formValues.email)) {
-        errors.email = "Please provide a valid email";
-      }
-    }
-  }
-
-  function formHasErrors(errors: SignInFormType) {
-    const formErrorValues = Object.values(errors).filter((val) => val.length > 0);
-
-    return formErrorValues.length > 0;
-  }
 
   async function trySigningIn(formValues: SignInFormType, errors: SignInFormType) {
     if (!formHasErrors(errors)) {
