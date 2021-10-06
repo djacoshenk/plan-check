@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { Home } from "pages/Home/Home";
+import { NoMatch404 } from "pages/NoMatch404/NoMatch404";
 import { UserDashboard } from "pages/UserDashboard/UserDashboard";
 import { UserSignIn } from "pages/UserSignIn/UserSignIn";
 import { UserSignUp } from "pages/UserSignUp/UserSignUp";
@@ -23,6 +24,9 @@ export const Routes = () => {
           <PrivateRoute path="/user/:id">
             <UserDashboard />
           </PrivateRoute>
+          <Route path="*">
+            <NoMatch404 />
+          </Route>
         </Switch>
       </Router>
     </>
