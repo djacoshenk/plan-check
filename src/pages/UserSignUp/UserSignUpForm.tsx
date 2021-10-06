@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { HiExclamationCircle } from "react-icons/hi";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Spinner } from "components/Spinner";
 import { checkEmptyFormValues } from "helpers/checkEmptyFormValues";
@@ -8,7 +8,8 @@ import { checkPasswordsMatch } from "helpers/checkPasswordsMatch";
 import { checkStrongPassword } from "helpers/checkStrongPassword";
 import { checkValidEmail } from "helpers/checkValidEmail";
 import { formHasErrors } from "helpers/formHasErrors";
-import { firestore, auth } from "lib/firebase-setup";
+import { useAuth } from "hooks/useAuth";
+import { firestore, firebaseAuth } from "lib/firebase-setup";
 
 type SignUpFormType = {
   [name: string]: string;
@@ -36,16 +37,16 @@ const defaultSignUpFormErrorValues = {
 };
 
 export function UserSignUpForm() {
+  const auth = useAuth();
   const [isSigningUp, setIsSigningUp] = useState(false);
   const [signUpFormValues, setSignUpFormValues] = useState<SignUpFormType>(defaultSignUpFormValues);
   const [signUpFormErrorValues, setSignUpFormErrorValues] = useState<SignUpFormType>(defaultSignUpFormErrorValues);
-  const history = useHistory();
 
   async function trySigningUp(formValues: SignUpFormType, errors: SignUpFormType) {
     if (!formHasErrors(errors)) {
       try {
         // if there are no errors and the email and password are both valid, then try to create a user and return the user data
-        const { user } = await auth.createUserWithEmailAndPassword(formValues.email, formValues.password);
+        const { user } = await firebaseAuth.createUserWithEmailAndPassword(formValues.email, formValues.password);
 
         // if a user is created, grab the user data and set the user info in the database
         if (user) {
@@ -59,19 +60,19 @@ export function UserSignUpForm() {
           });
 
           // if the user is stored and authenticated, get the user data and save it to local storage
-          auth.onAuthStateChanged(async (user) => {
+          firebaseAuth.onAuthStateChanged(async (user) => {
             if (user) {
               const snapshot = await firestore.collection("users").doc(user.uid).get();
 
               const data = snapshot.data();
 
               if (data) {
-                localStorage.setItem("current_user", JSON.stringify(data));
+                localStorage.setItem("current_user", JSON.stringify(data.uid));
               }
             }
           });
 
-          history.push(`/user/${user.uid}`);
+          auth.signIn(user.uid);
         }
       } catch (error: any) {
         if (error.code === "auth/email-already-in-use") {
@@ -104,6 +105,8 @@ export function UserSignUpForm() {
     checkStrongPassword(signUpFormValues, signUpFormErrors);
 
     trySigningUp(signUpFormValues, signUpFormErrors);
+
+    setIsSigningUp(false);
   }
 
   function renderInputStyles(error: string) {
