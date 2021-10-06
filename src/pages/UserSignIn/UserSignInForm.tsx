@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { HiExclamationCircle } from "react-icons/hi";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Spinner } from "components/Spinner";
 import { checkEmptyFormValues } from "helpers/checkEmptyFormValues";
 import { checkValidEmail } from "helpers/checkValidEmail";
 import { formHasErrors } from "helpers/formHasErrors";
-import { firestore, auth } from "lib/firebase-setup";
+import { useAuth } from "hooks/useAuth";
+import { firestore, firebaseAuth } from "lib/firebase-setup";
 
 type SignInFormType = {
   [name: string]: string;
@@ -25,23 +26,23 @@ const defaultSignInFormErrorValues = {
 };
 
 export function UserSignInForm() {
+  const auth = useAuth();
   const [isSigningIn, setIsSigningIn] = useState(false);
   const [signInFormValues, setSignInFormValues] = useState<SignInFormType>(defaultSignInFormValues);
   const [signInFormErrorValues, setSignInFormErrorValues] = useState<SignInFormType>({
     email: "",
     password: "",
   });
-  const history = useHistory();
 
   async function trySigningIn(formValues: SignInFormType, errors: SignInFormType) {
     if (!formHasErrors(errors)) {
       try {
         // if the email and password are both valid, then try to sign in and return the user info
-        const { user } = await auth.signInWithEmailAndPassword(formValues.email, formValues.password);
+        const { user } = await firebaseAuth.signInWithEmailAndPassword(formValues.email, formValues.password);
 
         // if a user is signed in successfully, grab the user info from the database and store in local storage
         if (user) {
-          auth.onAuthStateChanged(async (user) => {
+          firebaseAuth.onAuthStateChanged(async (user) => {
             if (user) {
               const snapshot = await firestore.collection("users").doc(user.uid).get();
 
@@ -53,7 +54,7 @@ export function UserSignInForm() {
             }
           });
 
-          history.push(`/user/${user.uid}`);
+          auth.signIn(user.uid);
         }
       } catch (error: any) {
         if (error.code === "auth/invalid-email") {
@@ -86,6 +87,8 @@ export function UserSignInForm() {
     checkValidEmail(signInFormValues, signInFormErrors);
 
     trySigningIn(signInFormValues, signInFormErrors);
+
+    setIsSigningIn(false);
   }
 
   function renderInputStyles(error: string) {
