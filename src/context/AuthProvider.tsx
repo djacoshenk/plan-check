@@ -21,18 +21,24 @@ export const AuthProvider = ({ children }: AuthProviderType) => {
     const currentUserStorage = localStorage.getItem("current_user");
 
     if (currentUserStorage) {
-      setCurrentUser(currentUserStorage);
+      setCurrentUser(JSON.parse(currentUserStorage));
     }
   }, []);
 
   const signIn = (id: string) => {
     setCurrentUser(id);
-    history.push(`/user/${id}`);
+
+    setTimeout(() => {
+      history.push(`/user/${id}`);
+    }, 500);
   };
 
   const signOut = () => {
     setCurrentUser(null);
-    history.push("/signin");
+
+    setTimeout(() => {
+      history.push("/signin");
+    }, 500);
   };
 
   const value = { currentUser, signIn, signOut };
